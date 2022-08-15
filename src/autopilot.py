@@ -1,4 +1,6 @@
+from objectDetection.objectDetection import ObjectDetection
+
+
 class Autopilot:
     def __init__(self):
-        pass
-    
+        self.objectDetection = ObjectDetection()
