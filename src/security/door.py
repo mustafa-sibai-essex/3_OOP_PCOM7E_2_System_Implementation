@@ -2,9 +2,10 @@ from security.entrance import Entrance
 from security.entranceType import EntranceType
 
 
-class Trunk(Entrance):
+class Door(Entrance):
     def __init__(self, entranceType: EntranceType):
         Entrance.__init__(self, entranceType)
+        pass
 
     def Lock(self):
         Entrance.Lock(self)
