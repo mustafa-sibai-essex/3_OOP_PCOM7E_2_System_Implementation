@@ -3,10 +3,11 @@ from autopilot import Autopilot
 from infotainment.contactType import ContactType
 from infotainment.contact import Contact
 from infotainment.infotainment import Infotainment
-
+from logging import Logging
 
 class Vehicle:
     def __init__(self):
+        self.logging = Logging()
         self.autopilot = Autopilot()
         self.infotainment = Infotainment()
         self.infotainment.phone.getPhoneBook().addContact(
@@ -34,3 +35,6 @@ class Vehicle:
             .getFrameBuffer()
             .getColorBuffer()[0]
         )
+
+    def start(self):
+        pass
