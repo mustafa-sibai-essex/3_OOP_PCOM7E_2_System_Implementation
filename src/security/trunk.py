@@ -1,15 +1,21 @@
+from loggingSystem import LoggingSystem
 from security.entrance import Entrance
 from security.entranceType import EntranceType
 
 
 class Trunk(Entrance):
-    def __init__(self, entranceType: EntranceType):
-        Entrance.__init__(self, entranceType)
+    """Trunk class represents and controls the trunk"""
 
-    def Lock(self):
-        Entrance.Lock(self)
-        print("{0} Locked".format(self._entranceType.value))
+    def __init__(self, entrance_type: EntranceType):
+        """Creates the trunk object and initializes the entrance class"""
+        Entrance.__init__(self, entrance_type)
 
-    def Unlock(self):
-        Entrance.Unlock(self)
-        print("{0} Unlocked".format(self._entranceType.value))
+    def lock(self):
+        """Sets the trunk state to locked"""
+        Entrance._lock(self)
+        LoggingSystem.logInfo("{0} Locked".format(self._entrance_type.value))
+
+    def unlock(self):
+        """Sets the trunk state to unlocked"""
+        Entrance._unlock(self)
+        LoggingSystem.logInfo("{0} Unlocked".format(self._entrance_type.value))

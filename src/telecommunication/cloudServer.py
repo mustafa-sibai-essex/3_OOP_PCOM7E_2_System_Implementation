@@ -3,8 +3,8 @@ from loggingSystem import LoggingSystem
 
 class CloudServer:
     def __init__(self):
-        self.cloudServerIpAddress = "82.35.12.3"
-        self.cloudServerPort = 3243
+        self.__cloudServerIpAddress = "82.35.12.3"
+        self.__cloudServerPort = 3243
 
     def connect(self):
         # assert random.randint(0, 9) > 1, "Failed to connect to GPS Satellite"

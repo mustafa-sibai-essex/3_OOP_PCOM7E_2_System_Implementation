@@ -1,10 +1,10 @@
 class SMS:
     def __init__(self, phone_number: str, message: str):
-        self._phone_number = phone_number
-        self._message = message
+        self.__phone_number = phone_number
+        self.__message = message
 
     def getPhoneNumber(self):
-        return self._phone_number
+        return self.__phone_number
 
     def getMessage(self):
-        return self._message
+        return self.__message

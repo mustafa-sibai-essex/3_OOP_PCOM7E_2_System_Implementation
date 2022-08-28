@@ -1,10 +1,25 @@
-from drivetrain.breakManager import BreakManager
+from drivetrain.breaksManager import BreakManager
 from drivetrain.engine import Engine
 from drivetrain.steering import Steering
 
 
 class Drivetrain:
+    """Drivertrain class contains the steering, engine, and breaks maanger"""
+
     def __init__(self):
-        self._steering = Steering()
-        self._engine = Engine()
-        self._breaks_manager = BreakManager()
+        """Creates the steering, engine and breaks manager objects"""
+        self.__steering = Steering()
+        self.__engine = Engine()
+        self.__breaks_manager = BreakManager()
+
+    def getSteering(self):
+        """Returns the Steering object"""
+        return self.__steering()
+
+    def getEngine(self):
+        """Returns the Engine object"""
+        return self.__engine
+
+    def getBreaksManager(self):
+        """Returns the BreaksManager object"""
+        return self.__breaks_manager

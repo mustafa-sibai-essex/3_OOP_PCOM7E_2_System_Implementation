@@ -1,18 +1,18 @@
 class Email:
     def __init__(self, sender_email: str, receiver_email: str, subject: str, body: str):
-        self._sender_email = sender_email
-        self._receiver_email = receiver_email
-        self._subject = subject
-        self._body = body
+        self.__sender_email = sender_email
+        self.__receiver_email = receiver_email
+        self.__subject = subject
+        self.__body = body
 
     def getSenderEmail(self):
-        return self._sender_email
+        return self.__sender_email
 
     def getReceiverEmail(self):
-        return self._receiver_email
+        return self.__receiver_email
 
     def getSubject(self):
-        return self._subject
+        return self.__subject
 
     def getBody(self):
-        return self._body
+        return self.__body

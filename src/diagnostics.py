@@ -30,4 +30,4 @@ class Diagnostics:
         return True
 
     def startVerificationProcess(self)
-        
+        pass

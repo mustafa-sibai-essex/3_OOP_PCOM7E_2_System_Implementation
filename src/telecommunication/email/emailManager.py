@@ -4,7 +4,7 @@ from telecommunication.email.email import Email
 
 class EmailManager:
     def __init__(self):
-        self._emails = list[Email]
+        self.__emails = list[Email]
 
     def sendEmail(self, email: Email):
         LoggingSystem.logInfo(

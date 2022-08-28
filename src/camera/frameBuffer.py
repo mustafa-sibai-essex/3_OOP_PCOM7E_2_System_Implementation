@@ -2,16 +2,16 @@ from camera.color import Color
 
 
 class FrameBuffer:
-    def __init__(self, width: int, height: int, _colorBuffer: Color):
-        self._width = width
-        self._height = height
-        self._colorBuffer = _colorBuffer
+    def __init__(self, width: int, height: int, colorBuffer: list[Color]):
+        self.__width = width
+        self.__height = height
+        self.__colorBuffer = colorBuffer
 
     def getWidth(self):
-        return self._width
+        return self.__width
 
     def getHeight(self):
-        return self._height
+        return self.__height
 
     def getColorBuffer(self):
-        return self._colorBuffer
+        return self.__colorBuffer

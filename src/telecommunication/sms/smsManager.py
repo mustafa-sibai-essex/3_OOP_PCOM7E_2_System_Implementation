@@ -4,10 +4,10 @@ from telecommunication.sms.sms import SMS
 
 class SMSManager:
     def __init__(self):
-        self._smses = list[SMS]
+        self.__smses = list[SMS]
 
     def sendSMS(self, sms: SMS):
-        self._smses.append(sms)
+        self.__smses.append(sms)
         LoggingSystem.logInfo(
             """sms send to: {0}
 with message of {1}""".format(
@@ -16,4 +16,4 @@ with message of {1}""".format(
         )
 
     def deleteSMS(self, index: int):
-        del self._smses[index]
+        del self.__smses[index]

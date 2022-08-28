@@ -5,17 +5,14 @@ import random
 
 class Camera:
     def __init__(self):
-        self._CAMERA_MAX_WIDTH = 800
-        self._CAMERA_MAX_HEIGHT = 600
+        self.__CAMERA_MAX_WIDTH = 320
+        self.__CAMERA_MAX_HEIGHT = 240
 
-        #assert random.randint(0, 9) > 1, "Failed to initialize Camera"
-        self.__fillFrameBuffer()
-
-    def __fillFrameBuffer(self):
+        # assert random.randint(0, 9) > 1, "Failed to initialize Camera"
         color = []
 
-        for y in range(0, self._CAMERA_MAX_HEIGHT):
-            for x in range(0, self._CAMERA_MAX_WIDTH):
+        for y in range(0, self.__CAMERA_MAX_HEIGHT):
+            for x in range(0, self.__CAMERA_MAX_WIDTH):
                 color.append(
                     Color(
                         random.random(),
@@ -25,9 +22,9 @@ class Camera:
                     )
                 )
 
-        self._frameBuffer = FrameBuffer(
-            self._CAMERA_MAX_WIDTH, self._CAMERA_MAX_HEIGHT, color
+        self.__frameBuffer = FrameBuffer(
+            self.__CAMERA_MAX_WIDTH, self.__CAMERA_MAX_HEIGHT, color
         )
 
     def getFrameBuffer(self):
-        return self._frameBuffer
+        return self.__frameBuffer

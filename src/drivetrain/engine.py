@@ -1,34 +1,83 @@
+from drivetrain.engineState import EngineState
 from loggingSystem import LoggingSystem
 
 
 class Engine:
+    """Engine class is responsible for managing the vehicle engine"""
+
     def __init__(self):
-        self._max_rpm = 7000
-        self._idle_rpm = 900
-        self._max_torque = 500
-        self._max_speed = 200
-        self._current_rpm = 0
-        self._current_torque = 0
-        self._current_speed = 0
+        """Creates the vehicle engine class object and sets the engine rpm, torque and speed"""
+        self.current_engine_state = EngineState.ENGINE_OFF
+
+        self.__max_rpm = 7000
+        self.__min_rpm = 0
+        self.__idle_rpm = 900
+        self.__current_rpm = self.__min_rpm
+
+        self.__max_torque = 500
+        self.__min_torque = 0
+        self.__current_torque = self.__min_torque
+
+        self.__max_speed = 200
+        self.__min_speed = 0
+        self.__current_speed = self.__min_speed
 
     def start(self):
+        """Starts the vehicle engine"""
+        self.current_engine_state = EngineState.ENGINE_ON
+        self.__current_rpm = self.__idle_rpm
         LoggingSystem.logInfo("Engine started!")
-        self._current_rpm = self._idle_rpm
 
     def stop(self):
+        """Stops the vehicle engine"""
+        self.current_engine_state = EngineState.ENGINE_OFF
+        self.__current_rpm = self.__min_rpm
         LoggingSystem.logInfo("Engine stopped")
-        self._current_rpm = 0
 
     def accelerate(self):
-        LoggingSystem.logInfo("Engine accelerating")
-        self._current_rpm += 100
-        self._current_speed += 10
-        self._current_rpm = min(self._current_rpm, self._max_rpm)
-        self._current_speed = min(self._current_speed, self._max_speed)
+        """Accelerates the vehicle engine"""
+        self.__current_rpm += 100
+        self.__current_speed += 10
+
+        if self.__current_rpm > self.__max_rpm:
+            self.__current_rpm = self.__max_rpm
+            LoggingSystem.logWarrning(
+                """Current engine RPM cannot exceed {0}. 
+Engine RPM has been set to the max value of {1}""".format(
+                    self.__max_rpm, self.__max_rpm
+                )
+            )
+        elif self.__current_speed > self.__max_speed:
+            self.__current_speed = self.__max_speed
+            LoggingSystem.logWarrning(
+                """Vehicle speed cannot exceed {0}. 
+Vehicle speed set to the max value of {1}""".format(
+                    self.__max_speed, self.__max_speed
+                )
+            )
+        else:
+            LoggingSystem.logInfo("Engine accelerating")
 
     def decelerate(self):
-        LoggingSystem.logInfo("Engine decelerating")
-        self._current_rpm -= 100
-        self._current_speed -= 10
-        self._current_rpm = max(self._current_rpm, self._idle_rpm)
-        self._current_speed = max(self._current_speed, 0)
+        """Decelerate the vehicle engine"""
+        self.__current_rpm -= 100
+        self.__current_speed -= 10
+
+        if self.__current_rpm < self.__min_rpm:
+            self.__current_rpm = self.__min_rpm
+            LoggingSystem.logWarrning(
+                """Current engine RPM cannot be below {0}. 
+Engine RPM has been set to the min value of {1}""".format(
+                    self.__min_rpm, self.__min_rpm
+                )
+            )
+        elif self.__current_speed > self.__min_speed:
+            self.__current_speed = self.__min_speed
+            LoggingSystem.logWarrning(
+                """Vehicle speed cannot be below {0}. 
+Vehicle speed set to the min value of {1}""".format(
+                    self.__min_speed, self.__min_speed
+                )
+            )
+        else:
+            LoggingSystem.logInfo("Engine decelerating")

@@ -6,7 +6,16 @@ from telecommunication.sms.smsManager import SMSManager
 
 class Telecommunication:
     def __init__(self):
-        self._gps = GPS()
-        self._sms_manager = SMSManager()
-        self._email_manager = EmailManager()
-        self._cloud_server = CloudServer()
+        self.__gps = GPS()
+        self.__sms_manager = SMSManager()
+        self.__email_manager = EmailManager()
+        self.__cloud_server = CloudServer()
+
+    def connectToSatellite(self):
+        pass
+
+    def connectToInternet(self):
+        pass
+
+    def sendGPSLocationViaSMS(self):
+        pass

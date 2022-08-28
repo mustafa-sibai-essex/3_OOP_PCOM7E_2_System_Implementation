@@ -1,22 +1,24 @@
 from alert import Alert
+from loggingSystem import LoggingSystem
 from security.entranceManager import EntranceManager
 from vehicle import Vehicle
+
 
 alert = Alert()
 alert.setAlertVolumeLevel(20)
 
 entranceManager = EntranceManager()
-entranceManager.LockAllEntrances()
-entranceManager.UnlockFrontDoors()
-entranceManager.UnlockBackDoors()
-entranceManager.UnlockTrunk()
-entranceManager.LockAllEntrances()
-entranceManager.UnlockAllEntrances()
+entranceManager.lockAllEntrances()
+entranceManager.unlockFrontDoors()
+entranceManager.unlockBackDoors()
+entranceManager.unlockTrunk()
+entranceManager.lockAllEntrances()
+entranceManager.unlockAllEntrances()
 
-entranceManager.LockFrontDoors()
-entranceManager.LockBackDoors()
-entranceManager.LockTrunk()
-entranceManager.UnlockAllEntrances()
-entranceManager.LockAllEntrances()
+entranceManager.lockFrontDoors()
+entranceManager.lockBackDoors()
+entranceManager.lockTrunk()
+entranceManager.unlockAllEntrances()
+entranceManager.lockAllEntrances()
 
 vehicle = Vehicle()
