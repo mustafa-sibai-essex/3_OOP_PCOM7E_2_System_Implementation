@@ -13,7 +13,7 @@ class SecurityPage(Page):
         self.__alert_page = AlertPage(stack, security)
 
     def start(self):
-        while True:
+        while len(self.__stack) > 0:
             choice = input(
                 """Select an option:
 1) Entrance

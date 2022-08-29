@@ -111,3 +111,6 @@ Vehicle speed set to the min value of {1}""".format(
                 self.__current_rpm, self.__current_speed
             )
         )
+
+    def getEngineState(self):
+        return self.__current_engine_state

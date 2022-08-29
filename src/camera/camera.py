@@ -5,8 +5,8 @@ import random
 
 class Camera:
     def __init__(self):
-        self.__CAMERA_MAX_WIDTH = 320
-        self.__CAMERA_MAX_HEIGHT = 240
+        self.__CAMERA_MAX_WIDTH = 120
+        self.__CAMERA_MAX_HEIGHT = 40
 
         # assert random.randint(0, 9) > 1, "Failed to initialize Camera"
         color = []

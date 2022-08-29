@@ -9,7 +9,7 @@ class BreaksPage(Page):
         self.__drivetrain = drivetrain
 
     def start(self):
-        while True:
+        while len(self.__stack) > 0:
             choice = input(
                 """Select an option:
 1) Increase front breaks force

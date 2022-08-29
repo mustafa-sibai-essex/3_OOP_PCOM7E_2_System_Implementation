@@ -9,7 +9,7 @@ class AlertPage(Page):
         self.__security = security
 
     def start(self):
-        while True:
+        while len(self.__stack) > 0:
             choice = input(
                 """Select an option:
 1) Arm alert

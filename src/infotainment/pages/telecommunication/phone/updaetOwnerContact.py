@@ -5,15 +5,23 @@ from telecommunication.phone.contactType import ContactType
 from telecommunication.telecommunication import Telecommunication
 
 
-class AddContactPage(Page):
+class UpdateOwnerContactPage(Page):
     def __init__(self, stack, telecommunication: Telecommunication):
         super().__init__()
         self.__stack = stack
         self.__telecommunication = telecommunication
 
     def start(self):
+
+        LoggingSystem.logInfo(
+            """Current owner contact is:
+{0}""".format(
+                self.__telecommunication.getPhone().getPhoneBook().getOwnerContact()
+            )
+        )
+
         name = input(
-            """Add new contact
+            """Enter new owner contcts information
 Enter name:
 """
         )
@@ -33,12 +41,12 @@ Enter Email:
         contact = (
             self.__telecommunication.getPhone()
             .getPhoneBook()
-            .addContact(Contact(name, phone_number, ContactType.NORMAL, email))
+            .updateOwnerContact(Contact(name, phone_number, ContactType.OWNER, email))
         )
 
         LoggingSystem.logInfo(
             """
-Contact added with the following information:
+Owner contact has been updated:
 {0}""".format(
                 contact
             )

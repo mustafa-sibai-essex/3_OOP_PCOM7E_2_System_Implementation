@@ -16,10 +16,10 @@ class TelecommunicationPage(Page):
         self.__cloud_server_page = CloudServerPage(
             self.__stack, self.__telecommunication
         )
-        self.__phone_page = PhonePage(stack, telecommunication))
+        self.__phone_page = PhonePage(stack, telecommunication)
 
     def start(self):
-        while True:
+        while len(self.__stack) > 0:
             choice = input(
                 """Select an option:
 1) Sattellite

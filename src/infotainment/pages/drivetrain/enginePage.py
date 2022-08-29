@@ -9,7 +9,7 @@ class EnginePage(Page):
         self.__drivetrain = drivetrain
 
     def start(self):
-        while True:
+        while len(self.__stack) > 0:
             choice = input(
                 """Select an option:
 1) Start engine

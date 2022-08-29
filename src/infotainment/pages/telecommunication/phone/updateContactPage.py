@@ -5,15 +5,26 @@ from telecommunication.phone.contactType import ContactType
 from telecommunication.telecommunication import Telecommunication
 
 
-class AddContactPage(Page):
+class UpdateContactPage(Page):
     def __init__(self, stack, telecommunication: Telecommunication):
         super().__init__()
         self.__stack = stack
         self.__telecommunication = telecommunication
 
     def start(self):
+
+        LoggingSystem.logInfo(
+            self.__telecommunication.getPhone().getPhoneBook().__str__()
+        )
+
+        choice = input(
+            """
+Select which contact to update
+"""
+        )
+
         name = input(
-            """Add new contact
+            """
 Enter name:
 """
         )
@@ -33,12 +44,14 @@ Enter Email:
         contact = (
             self.__telecommunication.getPhone()
             .getPhoneBook()
-            .addContact(Contact(name, phone_number, ContactType.NORMAL, email))
+            .updateContactByIndex(
+                int(choice), Contact(name, phone_number, ContactType.OWNER, email)
+            )
         )
 
         LoggingSystem.logInfo(
             """
-Contact added with the following information:
+Contact has been updated:
 {0}""".format(
                 contact
             )

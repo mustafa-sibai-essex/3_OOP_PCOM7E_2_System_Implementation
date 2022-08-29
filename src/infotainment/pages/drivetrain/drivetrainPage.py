@@ -14,7 +14,7 @@ class DrivetrainPage(Page):
         self.__breaksPage = BreaksPage(self.__stack, drivetrain)
 
     def start(self):
-        while True:
+        while len(self.__stack) > 0:
             choice = input(
                 """Select an option:
 1) Engine
