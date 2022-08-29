@@ -9,8 +9,9 @@ class EntrancePage(Page):
         self.__security = security
 
     def start(self):
-        choice = input(
-            """Select an option:
+        while True:
+            choice = input(
+                """Select an option:
 1) Lock Front Doors
 2) Lock Back Doors
 3) Lock Trunk
@@ -21,25 +22,25 @@ class EntrancePage(Page):
 8) Unlock All Entrances
 0) Back
 """
-        )
+            )
 
-        if choice == "1":
-            self.__security.getEntranceManager().lockFrontDoors()
-        elif choice == "2":
-            self.__security.getEntranceManager().lockBackDoors()
-        elif choice == "3":
-            self.__security.getEntranceManager().lockTrunk()
-        elif choice == "3":
-            self.__security.getEntranceManager().lockAllEntrances()
-        elif choice == "3":
-            self.__security.getEntranceManager().unlockFrontDoors()
-        elif choice == "3":
-            self.__security.getEntranceManager().unlockBackDoors()
-        elif choice == "3":
-            self.__security.getEntranceManager().unlockTrunk()
-        elif choice == "3":
-            self.__security.getEntranceManager().unlockAllEntrances()
-        elif choice == "0":
-            self.__stack.pop()
+            if choice == "1":
+                self.__security.getEntranceManager().lockFrontDoors()
+            elif choice == "2":
+                self.__security.getEntranceManager().lockBackDoors()
+            elif choice == "3":
+                self.__security.getEntranceManager().lockTrunk()
+            elif choice == "4":
+                self.__security.getEntranceManager().lockAllEntrances()
+            elif choice == "5":
+                self.__security.getEntranceManager().unlockFrontDoors()
+            elif choice == "6":
+                self.__security.getEntranceManager().unlockBackDoors()
+            elif choice == "7":
+                self.__security.getEntranceManager().unlockTrunk()
+            elif choice == "8":
+                self.__security.getEntranceManager().unlockAllEntrances()
+            elif choice == "0":
+                self.__stack.pop()
 
-        self.__stack[len(self.__stack) - 1].start()
+            self.__stack[len(self.__stack) - 1].start()

@@ -14,22 +14,23 @@ class DrivetrainPage(Page):
         self.__breaksPage = BreaksPage(self.__stack, drivetrain)
 
     def start(self):
-        choice = input(
-            """Select an option:
+        while True:
+            choice = input(
+                """Select an option:
 1) Engine
 2) Steering
 3) Breaks
 0) Back
 """
-        )
+            )
 
-        if choice == "1":
-            self.__stack.append(self.__enginePage)
-        elif choice == "2":
-            self.__stack.append(self.__steeringPage)
-        elif choice == "3":
-            self.__stack.append(self.__breaksPage)
-        elif choice == "0":
-            self.__stack.pop()
+            if choice == "1":
+                self.__stack.append(self.__enginePage)
+            elif choice == "2":
+                self.__stack.append(self.__steeringPage)
+            elif choice == "3":
+                self.__stack.append(self.__breaksPage)
+            elif choice == "0":
+                self.__stack.pop()
 
-        self.__stack[len(self.__stack) - 1].start()
+            self.__stack[len(self.__stack) - 1].start()

@@ -9,18 +9,19 @@ class SteeringPage(Page):
         self.__drivetrain = drivetrain
 
     def start(self):
-        choice = input(
-            """Select an option:
+        while True:
+            choice = input(
+                """Select an option:
 1) Steer right
 2) Steer left
 0) Back
 """
-        )
+            )
 
-        if choice == "1":
-            self.__drivetrain.getSteering().steerRight(10)
-        elif choice == "2":
-            self.__drivetrain.getSteering().steerLeft(10)
-        elif choice == "0":
-            self.__stack.pop()
-            self.__stack[len(self.__stack) - 1].start()
+            if choice == "1":
+                self.__drivetrain.getSteering().steerRight(10)
+            elif choice == "2":
+                self.__drivetrain.getSteering().steerLeft(10)
+            elif choice == "0":
+                self.__stack.pop()
+                self.__stack[len(self.__stack) - 1].start()

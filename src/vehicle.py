@@ -11,7 +11,9 @@ class Vehicle:
         self.__telecommunication = Telecommunication()
         self.__security = Security(self.__telecommunication)
         self.__autopilot = Autopilot(self.__drivetrain)
-        self.__infotainment = Infotainment(self.__drivetrain, self.__telecommunication, self.__security)
+        self.__infotainment = Infotainment(
+            self.__drivetrain, self.__telecommunication, self.__security
+        )
 
     def start(self):
         self.__infotainment.start()

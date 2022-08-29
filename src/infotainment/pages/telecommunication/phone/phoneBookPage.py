@@ -9,8 +9,9 @@ class PhoneBookPage(Page):
         self.__telecommunication = telecommunication
 
     def start(self):
-        choice = input(
-            """Select an option:
+        while True:
+            choice = input(
+                """Select an option:
 1) Add Contact
 2) Remove Contact
 3) Update Contact
@@ -19,14 +20,14 @@ class PhoneBookPage(Page):
 6) Get Contact
 0) Back
 """
-        )
+            )
 
-        if choice == "1":
-            self.__telecommunication.getPhone().getPhoneBook().addContact()
-        elif choice == "2":
-            self.__telecommunication.getCloudServer().disconnect()
-        elif choice == "3":
-            self.__telecommunication.getCloudServer().uploadStatstics()
-        elif choice == "0":
-            self.__stack.pop()
-            self.__stack[len(self.__stack) - 1].start()
+            if choice == "1":
+                self.__telecommunication.getPhone().getPhoneBook().addContact()
+            elif choice == "2":
+                self.__telecommunication.getCloudServer().disconnect()
+            elif choice == "3":
+                self.__telecommunication.getCloudServer().uploadStatstics()
+            elif choice == "0":
+                self.__stack.pop()
+                self.__stack[len(self.__stack) - 1].start()

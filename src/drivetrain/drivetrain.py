@@ -1,4 +1,4 @@
-from drivetrain.breaksManager import BreaksManager
+from drivetrain.breaks.breaksManager import BreaksManager
 from drivetrain.engine.engine import Engine
 from drivetrain.steering import Steering
 

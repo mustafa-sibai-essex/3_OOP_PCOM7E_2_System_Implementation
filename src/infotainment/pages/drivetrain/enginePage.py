@@ -9,24 +9,25 @@ class EnginePage(Page):
         self.__drivetrain = drivetrain
 
     def start(self):
-        choice = input(
-            """Select an option:
+        while True:
+            choice = input(
+                """Select an option:
 1) Start engine
 2) Stop engine
 3) Accelerate
 4) Decelerate
 0) Back
 """
-        )
+            )
 
-        if choice == "1":
-            self.__drivetrain.getEngine().start()
-        elif choice == "2":
-            self.__drivetrain.getEngine().stop()
-        elif choice == "3":
-            self.__drivetrain.getEngine().accelerate()
-        elif choice == "4":
-            self.__drivetrain.getEngine().decelerate()
-        elif choice == "0":
-            self.__stack.pop()
-            self.__stack[len(self.__stack) - 1].start()
+            if choice == "1":
+                self.__drivetrain.getEngine().start()
+            elif choice == "2":
+                self.__drivetrain.getEngine().stop()
+            elif choice == "3":
+                self.__drivetrain.getEngine().accelerate()
+            elif choice == "4":
+                self.__drivetrain.getEngine().decelerate()
+            elif choice == "0":
+                self.__stack.pop()
+                self.__stack[len(self.__stack) - 1].start()

@@ -22,22 +22,23 @@ class InfotainmentPage(Page):
         self.__security_page = SecurityPage(stack, security)
 
     def start(self):
-        choice = input(
-            """Select an option:
+        while True:
+            choice = input(
+                """Select an option:
 1) Telecommunication
 2) Drivetrain
 3) Security
-0) Back
+0) Exit
 """
-        )
+            )
 
-        if choice == "1":
-            self.__stack.append(self.__telecommunication_page)
-        elif choice == "2":
-            self.__stack.append(self.__drivetrain_page)
-        elif choice == "3":
-            self.__stack.append(self.__security_page)
-        elif choice == "0":
-            self.__stack.pop()
+            if choice == "1":
+                self.__stack.append(self.__telecommunication_page)
+            elif choice == "2":
+                self.__stack.append(self.__drivetrain_page)
+            elif choice == "3":
+                self.__stack.append(self.__security_page)
+            elif choice == "0":
+                break
 
-        self.__stack[len(self.__stack) - 1].start()
+            self.__stack[len(self.__stack) - 1].start()
