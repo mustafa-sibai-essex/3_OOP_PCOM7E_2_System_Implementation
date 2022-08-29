@@ -1,5 +1,5 @@
 import datetime
-from infotainment.contactType import ContactType
+from telecommunication.phone.contactType import ContactType
 from .basicContact import BasicContact
 
 
@@ -12,7 +12,7 @@ class Contact(BasicContact):
         phone_number: str,
         contact_type: ContactType,
         email: str,
-        birthdate: datetime = datetime(),
+        birthdate: datetime,
     ):
         """Sets the contact name, phone number email, birthdate and contact type"""
         BasicContact.__init__(self, name, phone_number, contact_type)

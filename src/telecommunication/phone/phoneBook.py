@@ -1,4 +1,5 @@
-from infotainment.contactType import ContactType
+from datetime import datetime
+from telecommunication.phone.contactType import ContactType
 from .contact import Contact
 
 
@@ -9,10 +10,18 @@ class PhoneBook:
         """Creates a the phone with a list of contacts"""
         self.__contacts: list[Contact] = []
         self.__contacts.append(
-            Contact("Emergency", "999", ContactType.EMERGENCY, "emergency@uk.gov")
+            Contact(
+                "Emergency",
+                "999",
+                ContactType.EMERGENCY,
+                "emergency@uk.gov",
+                datetime(1999, 1, 1),
+            )
         )
         self.__contacts.append(
-            Contact("Owner", "0", ContactType.OWNER, "owner@email.com")
+            Contact(
+                "Owner", "0", ContactType.OWNER, "owner@email.com", datetime(1999, 1, 1)
+            )
         )
 
     def __str__(self):
@@ -58,3 +67,7 @@ class PhoneBook:
         """Returns a contact from the phone book based on contact_name"""
         contact_index = self.__getContactIndex(self, contact_name)
         return self.__contacts[contact_index]
+
+    def getOwnerContact(self):
+        """Returns the owner contact from the phone book"""
+        return self.__contacts[1]

@@ -1,9 +1,8 @@
-from alert import Alert
 from loggingSystem import LoggingSystem
 from security.entranceManager import EntranceManager
 from vehicle import Vehicle
 
-
+"""
 alert = Alert()
 alert.setAlertVolumeLevel(20)
 
@@ -20,5 +19,6 @@ entranceManager.lockBackDoors()
 entranceManager.lockTrunk()
 entranceManager.unlockAllEntrances()
 entranceManager.lockAllEntrances()
-
+"""
 vehicle = Vehicle()
+vehicle.start()

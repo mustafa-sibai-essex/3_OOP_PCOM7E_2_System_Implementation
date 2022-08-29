@@ -1,5 +1,5 @@
-from drivetrain.breaksManager import BreakManager
-from drivetrain.engine import Engine
+from drivetrain.breaksManager import BreaksManager
+from drivetrain.engine.engine import Engine
 from drivetrain.steering import Steering
 
 
@@ -10,11 +10,11 @@ class Drivetrain:
         """Creates the steering, engine and breaks manager objects"""
         self.__steering = Steering()
         self.__engine = Engine()
-        self.__breaks_manager = BreakManager()
+        self.__breaks_manager = BreaksManager()
 
     def getSteering(self):
         """Returns the Steering object"""
-        return self.__steering()
+        return self.__steering
 
     def getEngine(self):
         """Returns the Engine object"""

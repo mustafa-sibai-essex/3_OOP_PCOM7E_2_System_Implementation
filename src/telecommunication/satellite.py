@@ -1,6 +1,6 @@
 import random
+from loggingSystem import LoggingSystem
 from telecommunication.connectionState import ConnectionState
-from ..loggingSystem import LoggingSystem
 
 
 class Satellite:
@@ -42,4 +42,8 @@ class Satellite:
 
     def getState(self):
         """Returns the current state of the satellite"""
+
+        LoggingSystem.logInfo(
+            "Sattellite state is: {0}".format(self.__connection_state)
+        )
         return self.__connection_state

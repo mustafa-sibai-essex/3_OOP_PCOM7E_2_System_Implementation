@@ -10,7 +10,7 @@ class CloudServer:
     def __init__(self, satellite: Satellite):
         """Creates the CloudServer class object and sets up the connection state"""
         self.__satellite = satellite
-        self.__connection_state = ConnectionState()
+        self.__connection_state = ConnectionState.DISCONNECTED
         self.__cloudServerIpAddress = "82.35.12.3"
         self.__cloudServerPort = 3243
 

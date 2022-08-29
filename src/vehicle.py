@@ -1,47 +1,17 @@
-from datetime import date
 from autopilot import Autopilot
 from drivetrain.drivetrain import Drivetrain
-from infotainment.contactType import ContactType
-from infotainment.contact import Contact
 from infotainment.infotainment import Infotainment
+from security.security import Security
+from telecommunication.telecommunication import Telecommunication
 
 
 class Vehicle:
     def __init__(self):
-        self.drivetrain = Drivetrain()
-        self.autopilot = Autopilot(self.drivetrain)
-        self.infotainment = Infotainment()
-        self.infotainment.getPhone().getPhoneBook().addContact(
-            Contact(
-                "Mustafa Sibai",
-                "+971557716033",
-                ContactType.NORMAL,
-                "contact@m-sibai.com",
-                date.today(),
-            )
-        )
-        print(self.infotainment.getPhone().getPhoneBook())
-
-        print(
-            self.autopilot.getObjectDetection().getCamera().getFrameBuffer().getWidth()
-        )
-        print(
-            self.autopilot.getObjectDetection().getCamera().getFrameBuffer().getHeight()
-        )
-        print(
-            len(
-                self.autopilot.getObjectDetection()
-                .getCamera()
-                .getFrameBuffer()
-                .getColorBuffer()
-            )
-        )
-        print(
-            self.autopilot.getObjectDetection()
-            .getCamera()
-            .getFrameBuffer()
-            .getColorBuffer()[0]
-        )
+        self.__drivetrain = Drivetrain()
+        self.__telecommunication = Telecommunication()
+        self.__security = Security(self.__telecommunication)
+        self.__autopilot = Autopilot(self.__drivetrain)
+        self.__infotainment = Infotainment(self.__drivetrain, self.__telecommunication, self.__security)
 
     def start(self):
-        pass
+        self.__infotainment.start()

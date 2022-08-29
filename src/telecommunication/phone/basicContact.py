@@ -1,4 +1,4 @@
-from infotainment.contactType import ContactType
+from telecommunication.phone.contactType import ContactType
 
 
 class BasicContact:

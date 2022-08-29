@@ -10,7 +10,7 @@ class GPS:
     def __init__(self, satellite: Satellite):
         """Creates the GPS class object"""
         self.__satellite = satellite
-        self.__connection_state = ConnectionState()
+        self.__connection_state = ConnectionState.DISCONNECTED
         self.__latitude = 0
         self.__longitude = 0
         self.__altitude = 0
@@ -60,12 +60,21 @@ class GPS:
         else:
             LoggingSystem.logError("Failed to disconnect from GPS")
 
+    def getState(self):
+        """Returns the current state of GPS"""
+
+        LoggingSystem.logInfo(
+            "Sattellite state is: {0}".format(self.__connection_state)
+        )
+        return self.__connection_state
+
     def getSpeed(self):
         """Returns the vehicle current speed as long as we are connected to the satellite"""
         if self.__connection_state != ConnectionState.CONNECTED:
             self.__speed = 0
             LoggingSystem.logWarrning("Cannot get speed if not connected to GPS")
 
+        LoggingSystem.logInfo("GPS speed is: {0}".format(self.__speed))
         return self.__speed
 
     def getLattitude(self):
@@ -74,6 +83,7 @@ class GPS:
             self.__latitude = 0
             LoggingSystem.logWarrning("Cannot get latitude if not connected to GPS")
 
+        LoggingSystem.logInfo("GPS latitude is: {0}".format(self.__latitude))
         return self.__latitude
 
     def getLongitude(self):
@@ -82,6 +92,7 @@ class GPS:
             self.__longitude = 0
             LoggingSystem.logWarrning("Cannot get longitude if not connected to GPS")
 
+        LoggingSystem.logInfo("GPS longitude is: {0}".format(self.__longitude))
         return self.__longitude
 
     def getAltitude(self):
@@ -90,4 +101,5 @@ class GPS:
             self.__altitude = 0
             LoggingSystem.logWarrning("Cannot get altitude if not connected to GPS")
 
+        LoggingSystem.logInfo("GPS altitude is: {0}".format(self.__altitude))
         return self.__altitude
