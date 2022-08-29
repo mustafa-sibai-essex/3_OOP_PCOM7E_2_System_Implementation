@@ -21,6 +21,8 @@ class CloudServerPage(Page):
 """
             )
 
+            assert int(choice) <= 5, "Choice is outside the range"
+
             if choice == "1":
                 self.__telecommunication.getCloudServer().connect()
             elif choice == "2":

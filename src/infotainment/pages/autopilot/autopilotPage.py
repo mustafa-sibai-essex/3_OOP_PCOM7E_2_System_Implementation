@@ -18,6 +18,8 @@ class AutopilotPage(Page):
 """
             )
 
+            assert int(choice) <= 2, "Choice is outside the range"
+
             if choice == "1":
                 self.__autopilot.turnOnAutopilot()
             elif choice == "2":

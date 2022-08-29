@@ -38,6 +38,8 @@ class PhoneBookPage(Page):
 """
             )
 
+            assert int(choice) <= 5, "Choice is outside the range"
+
             if choice == "1":
                 self.__stack.append(self.__add_contact_page)
                 self.__stack[len(self.__stack) - 1].start()

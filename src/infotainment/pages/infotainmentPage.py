@@ -37,6 +37,8 @@ class InfotainmentPage(Page):
 """
             )
 
+            assert int(choice) <= 4, "Choice is outside the range"
+
             if choice == "1":
                 self.__stack.append(self.__drivetrain_page)
             elif choice == "2":

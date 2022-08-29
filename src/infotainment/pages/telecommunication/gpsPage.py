@@ -22,6 +22,8 @@ class GPSPage(Page):
 """
             )
 
+            assert int(choice) <= 6, "Choice is outside the range"
+
             if choice == "1":
                 self.__telecommunication.getGPS().connect()
             elif choice == "2":

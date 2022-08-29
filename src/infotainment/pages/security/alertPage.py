@@ -23,6 +23,8 @@ class AlertPage(Page):
 """
             )
 
+            assert int(choice) <= 7, "Choice is outside the range"
+
             if choice == "1":
                 self.__security.getAlert().arm()
             elif choice == "2":

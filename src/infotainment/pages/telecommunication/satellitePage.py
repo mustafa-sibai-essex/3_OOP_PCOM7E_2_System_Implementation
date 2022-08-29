@@ -19,6 +19,8 @@ class SatellitePage(Page):
 """
             )
 
+            assert int(choice) <= 3, "Choice is outside the range"
+
             if choice == "1":
                 self.__telecommunication.getSatellite().connect()
             elif choice == "2":

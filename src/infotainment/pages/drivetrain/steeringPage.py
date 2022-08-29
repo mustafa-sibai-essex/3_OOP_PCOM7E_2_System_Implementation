@@ -18,6 +18,8 @@ class SteeringPage(Page):
 """
             )
 
+            assert int(choice) <= 2, "Choice is outside the range"
+
             if choice == "1":
                 self.__drivetrain.getSteering().steerRight(10)
             elif choice == "2":

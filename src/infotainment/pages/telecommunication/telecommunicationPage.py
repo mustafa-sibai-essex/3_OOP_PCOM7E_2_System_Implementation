@@ -30,6 +30,8 @@ class TelecommunicationPage(Page):
 """
             )
 
+            assert int(choice) <= 4, "Choice is outside the range"
+
             if choice == "1":
                 self.__stack.append(self.__satellite_page)
             elif choice == "2":

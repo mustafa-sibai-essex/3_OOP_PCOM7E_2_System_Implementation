@@ -24,6 +24,8 @@ class DrivetrainPage(Page):
 """
             )
 
+            assert int(choice) <= 3, "Choice is outside the range"
+
             if choice == "1":
                 self.__stack.append(self.__enginePage)
             elif choice == "2":

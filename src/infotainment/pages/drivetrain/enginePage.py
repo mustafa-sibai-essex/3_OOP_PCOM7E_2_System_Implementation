@@ -20,6 +20,8 @@ class EnginePage(Page):
 """
             )
 
+            assert int(choice) <= 4, "Choice is outside the range"
+
             if choice == "1":
                 self.__drivetrain.getEngine().start()
             elif choice == "2":

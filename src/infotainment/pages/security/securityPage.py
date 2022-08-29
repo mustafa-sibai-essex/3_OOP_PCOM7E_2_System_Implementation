@@ -27,6 +27,8 @@ class SecurityPage(Page):
 """
             )
 
+            assert int(choice) <= 7, "Choice is outside the range"
+
             if choice == "1":
                 self.__stack.append(self.__entrance_page)
             elif choice == "2":

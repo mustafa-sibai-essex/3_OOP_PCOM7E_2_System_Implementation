@@ -24,6 +24,8 @@ class EntrancePage(Page):
 """
             )
 
+            assert int(choice) <= 8, "Choice is outside the range"
+
             if choice == "1":
                 self.__security.getEntranceManager().lockFrontDoors()
             elif choice == "2":

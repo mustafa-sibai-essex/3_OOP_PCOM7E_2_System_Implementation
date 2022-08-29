@@ -22,6 +22,8 @@ class BreaksPage(Page):
 """
             )
 
+            assert int(choice) <= 6, "Choice is outside the range"
+
             if choice == "1":
                 self.__drivetrain.getBreaksManager().increaseFrontBreaksForce(10)
             elif choice == "2":
