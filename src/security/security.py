@@ -8,6 +8,8 @@ from telecommunication.telecommunication import Telecommunication
 
 
 class Security:
+    """Security class is responsible for all security systems in the vehicle such as locking and unlocking entrances and detecting any breakins"""
+
     def __init__(self, telecommunication: Telecommunication):
         self.__telecommunication = telecommunication
         self.__entrance_manager = EntranceManager()

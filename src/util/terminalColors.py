@@ -1,4 +1,6 @@
 class TerminalColors:
+    """This class is responsible for adding color to text in the terminal which the logging system uses"""
+
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
     OKCYAN = "\033[96m"

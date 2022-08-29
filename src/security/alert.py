@@ -2,6 +2,8 @@ from loggingSystem import LoggingSystem
 
 
 class Alert:
+    """Alert class is responsible for alerting the owner with audio feedback"""
+
     def __init__(self):
         """Construct the alert system"""
         self.__max_alert_volume_level = 100
