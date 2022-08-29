@@ -29,7 +29,7 @@ class CloudServerPage(Page):
                 self.__telecommunication.getCloudServer().uploadStatstics()
             elif choice == "4":
                 self.__telecommunication.getCloudServer().uploadData([1, 2, 3, 4, 5])
-            elif choice == "4":
+            elif choice == "5":
                 self.__telecommunication.getCloudServer().streamData([1, 2, 3, 4, 5])
             elif choice == "0":
                 self.__stack.pop()

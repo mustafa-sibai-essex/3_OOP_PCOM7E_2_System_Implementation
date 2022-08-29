@@ -1,6 +1,6 @@
 from loggingSystem import LoggingSystem
-from security.entrance import Entrance
-from security.entranceType import EntranceType
+from security.entrances.entrance import Entrance
+from security.entrances.entranceType import EntranceType
 
 
 class Trunk(Entrance):

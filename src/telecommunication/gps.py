@@ -10,7 +10,7 @@ class GPS:
     def __init__(self, satellite: Satellite):
         """Creates the GPS class object"""
         self.__satellite = satellite
-        self.__connection_state = ConnectionState.DISCONNECTED
+        self.__connection_state = ConnectionState.NOT_CONNECTED
         self.__latitude = 0
         self.__longitude = 0
         self.__altitude = 0
@@ -64,7 +64,7 @@ class GPS:
         """Returns the current state of GPS"""
 
         LoggingSystem.logInfo(
-            "Sattellite state is: {0}".format(self.__connection_state)
+            "GPS state is: {0}".format(self.__connection_state)
         )
         return self.__connection_state
 

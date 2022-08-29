@@ -1,4 +1,5 @@
 from infotainment.pages.page import Page
+from infotainment.pages.security.alertPage import AlertPage
 from infotainment.pages.security.entrancePage import EntrancePage
 from security.security import Security
 
@@ -9,6 +10,7 @@ class SecurityPage(Page):
         self.__stack = stack
         self.__security = security
         self.__entrance_page = EntrancePage(stack, security)
+        self.__alert_page = AlertPage(stack, security)
 
     def start(self):
         while True:
@@ -28,9 +30,17 @@ class SecurityPage(Page):
             if choice == "1":
                 self.__stack.append(self.__entrance_page)
             elif choice == "2":
-                self.__stack.append(self.__gps_page)
+                self.__stack.append(self.__alert_page)
             elif choice == "3":
-                self.__stack.append(self.__cloud_server_page)
+                self.__security.startDetectingBreakIn()
+            elif choice == "4":
+                self.__security.stopDetectingBreakIn()
+            elif choice == "5":
+                self.__security.sendGPSLocationToOwnerViaSMS()
+            elif choice == "6":
+                self.__security.sendBreakInNotificationToOwnerViaSMS()
+            elif choice == "7":
+                self.__security.sendBreakInNotificationToOwnerViaEmail()
             elif choice == "0":
                 self.__stack.pop()
 

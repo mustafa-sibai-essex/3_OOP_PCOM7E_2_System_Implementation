@@ -1,6 +1,6 @@
-from security.door import Door
+from security.entrances.door import Door
+from security.entrances.trunk import Trunk
 from .entranceType import EntranceType
-from security.trunk import Trunk
 
 
 class EntranceManager:

@@ -1,6 +1,6 @@
-from alert import Alert
+from security.alert import Alert
 from loggingSystem import LoggingSystem
-from security.entranceManager import EntranceManager
+from security.entrances.entranceManager import EntranceManager
 from telecommunication.connectionState import ConnectionState
 from telecommunication.email.email import Email
 from telecommunication.sms.sms import SMS
@@ -14,12 +14,19 @@ class Security:
         self.__alert = Alert()
 
     def getEntranceManager(self):
+        """Returns entrance manager object"""
         return self.__entrance_manager
 
+    def getAlert(self):
+        """Returns alert object"""
+        return self.__alert
+
     def startDetectingBreakIn(self):
+        """Starts detecting break in"""
         LoggingSystem.logInfo("Breakin detection is on")
 
     def stopDetectingBreakIn(self):
+        """Stops detecting break in"""
         LoggingSystem.logInfo("Breakin detection is off")
 
     def sendGPSLocationToOwnerViaSMS(self):
@@ -62,7 +69,7 @@ class Security:
                 .getOwnerContact()
                 .getEmail(),
                 "Breakin Detected!",
-                "A breakin to your vehicle has been detected!"
+                "A breakin to your vehicle has been detected!",
             )
         )
 

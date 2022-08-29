@@ -1,4 +1,4 @@
-from security.entranceType import EntranceType
+from security.entrances.entranceType import EntranceType
 
 
 class Entrance:

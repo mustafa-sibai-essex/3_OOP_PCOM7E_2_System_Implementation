@@ -1,4 +1,4 @@
-from alert import Alert
+from security.alert import Alert
 from infotainment.infotainment import Infotainment
 
 
